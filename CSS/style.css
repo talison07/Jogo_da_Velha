@@ -20,6 +20,7 @@ body {
 
   background-color: #808080;
   margin: 1px;
+  border-radius: 10px;
 }
 
 .x:after {
