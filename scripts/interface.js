@@ -7,17 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function clickPosition(event) {
+async function clickPosition(event) {
   //Identifica o quadrado clicado através do id
   let square = event.target;
   let position = square.id;
 
   //passa a vez para o próximo jogador
   playerMove(position);
+  draw();
   turn();
 
   //coloca o simbolo no quadrado clicado
   insertSymbol();
+
 }
 
 function insertSymbol() {
@@ -95,14 +97,22 @@ function winner() {
 }
 
 function draw() {
-  let winnerScreen = document.getElementsByClassName("winScreen");
-  let winner = document.getElementById("winner");
+  if (winStatus == false) {
+    if (board.every(pos => pos == "o" || pos == "x")) {
+      let winnerScreen = document.getElementsByClassName("winScreen");
+      let winner = document.getElementById("winner");
 
-  winnerScreen[0].classList.add("appear");
-  //mensagem de empate
-  winner.textContent = "Empate!"
+      //mensagem de empate
+      winner.textContent = "Empate!"
+      winnerScreen[0].classList.add("appear");
+    }
+  }
 
 }
+
+
+
+
 
 function turn() {
   let turn = document.getElementById("turn")

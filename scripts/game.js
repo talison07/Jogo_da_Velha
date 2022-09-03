@@ -6,17 +6,17 @@ let winStatus = false;
 function playerMove(position) {
   if (winStatus) {
     //se houver vencedor, acaba o jogo
-    return;
+    return
   }
+
+
 
   //se a posição clicada não é vazia, coloca o simbolo no board(game.js)
   if (board[position] == "" || board[position] == " ") {
     board[position] = symbol[playerTime];
     win();
 
-    if (board.every(pos => pos == "o" || pos == "x")) {
-      draw()
-    }
+
 
     //alterna a vez
     if (playerTime == 0) {
@@ -24,10 +24,12 @@ function playerMove(position) {
     } else {
       playerTime = 0;
     }
+
   }
+
 }
 
-async function win() {
+function win() {
   let winPossibilities = [
     [0, 1, 2],
     [3, 4, 5],
@@ -53,9 +55,9 @@ async function win() {
       ) {
         //se houver vencedor, atualiza o status do game para terminar a partida
         winStatus = true;
+        winner();
 
         //atualiza o placar e dá mensagem de vitória
-        await winner();
 
       }
 
@@ -64,5 +66,9 @@ async function win() {
 
     }
 
+
+
   }
+
 }
+
