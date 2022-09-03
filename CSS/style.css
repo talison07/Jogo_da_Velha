@@ -20,6 +20,7 @@ body {
 
   background-color: #808080;
   margin: 1px;
+  border-radius: 6px;
 }
 
 .x:after {
@@ -53,7 +54,7 @@ body {
   color: #fff;
 }
 
-#turn{
+#turn {
   content: "Vez do jogador: X";
   color: #fff;
   position: absolute;
@@ -117,4 +118,3 @@ body {
 #winner {
   font-size: 3.2rem;
 }
-
